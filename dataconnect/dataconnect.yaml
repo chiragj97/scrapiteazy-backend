@@ -1,0 +1,12 @@
+specVersion: "v1beta"
+serviceId: "scrapiteazy-backend"
+location: "asia-south1"
+schema:
+  source: "./schema"
+  datasource:
+    postgresql:
+      database: "fdcdb"
+      cloudSql:
+        instanceId: "scrapiteazy-backend-fdc"
+      # schemaValidation: "COMPATIBLE"
+connectorDirs: ["./connector"]

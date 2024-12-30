@@ -32,5 +32,6 @@ module.exports = {
     "max-len": ["error", {code: 100}],
     "require-jsdoc": 0,
     "linebreak-style": 0,
+    "new-cap": 0,
   },
 };

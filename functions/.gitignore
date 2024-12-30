@@ -13,3 +13,4 @@ node_modules
 lib
 .env
 permissions.json
+.runtimeconfig.json

@@ -7,12 +7,13 @@
  * See a full list of supported triggers at https://firebase.google.com/docs/functions
  */
 
-import {onRequest} from "firebase-functions/v2/https";
+import * as functions from "firebase-functions";
 import express from "express";
 import cors from "cors";
-import {registerVendor} from "./vendor/auth";
+import vendorRoutes from "./routes/vendor.routes";
+import authRoutes from "./routes/auth.routes";
+import bookingRoutes from "./routes/booking.routes";
 
-// Initialize express app
 const app = express();
 
 // Middleware
@@ -24,10 +25,10 @@ app.get("/test", (req, res) => {
   res.json({message: "Hello from Firebase Functions!"});
 });
 
-// Vendor routes
-app.post("/register-vendor", registerVendor);
+// Routes
+app.use("/vendor", vendorRoutes);
+app.use("/auth", authRoutes);
+app.use("/booking", bookingRoutes);
 
 // Export the Express app as a Firebase Function
-export const api = onRequest(app);
-
-
+export const api = functions.https.onRequest(app);
